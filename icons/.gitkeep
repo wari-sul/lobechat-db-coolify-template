@@ -1,0 +1,15 @@
+# Icons Directory
+
+Place template icons (logos) in this directory.
+
+## Naming Convention
+- Use lowercase with hyphens: `template-name-icon.png`
+- Recommended size: 128x128px or 256x256px
+- Format: PNG with transparency preferred
+
+## Example
+```
+lobechat-icon.png
+minio-icon.png
+logto-icon.png
+```

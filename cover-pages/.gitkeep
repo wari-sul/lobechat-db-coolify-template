@@ -1,0 +1,14 @@
+# Cover Pages Directory
+
+Place template banner/cover images in this directory.
+
+## Naming Convention
+- Use lowercase with hyphens: `template-name-banner.png`
+- Recommended size: 1200x400px (3:1 ratio)
+- Format: PNG or JPG
+
+## Example
+```
+lobechat-banner.png
+nextcloud-banner.png
+```

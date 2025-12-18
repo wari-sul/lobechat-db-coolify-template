@@ -1,0 +1,26 @@
+services:
+  app:
+    image: your-app:latest
+    restart: unless-stopped
+    environment:
+      # Required: Public URL for your application
+      - APP_URL=${APP_URL:?}
+      
+      # Required: Database connection string
+      - DATABASE_URL=${DATABASE_URL:?}
+      
+      # Optional: Additional configuration
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    
+    volumes:
+      - app-data:/data
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  app-data:

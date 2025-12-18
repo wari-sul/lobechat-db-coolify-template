@@ -70,15 +70,32 @@ Please read our [Contributing Guide](./CONTRIBUTING.md) for:
 5. Update main README with your template listing
 6. Submit a pull request
 
+**✨ Need Help?** Use our custom GitHub agents:
+- `@template-verifier` - Validates your template for Coolify compatibility
+- `@repo-organizer` - Helps integrate your template into the repository
+
+[Learn more about our agents](./.github/agents/README.md)
+
 ## 📁 Repository Structure
 
 ```
 .
-├── templates/          # All deployment templates
+├── .github/
+│   └── agents/        # Custom GitHub agents for automation
+├── templates/         # All deployment templates
 ├── icons/             # Icons used in documentation
 ├── cover-pages/       # Cover images for templates
 └── README.md          # This file
 ```
+
+## 🤖 Automated Quality Checks
+
+We use custom GitHub Copilot agents to maintain repository quality:
+
+- **Template Verifier** - Validates templates against Coolify requirements
+- **Repository Organizer** - Maintains consistent structure and documentation
+
+These agents automatically review pull requests and help contributors ensure their templates meet quality standards. [Learn more about our agents](./.github/agents/README.md)
 
 ## 📝 License
 

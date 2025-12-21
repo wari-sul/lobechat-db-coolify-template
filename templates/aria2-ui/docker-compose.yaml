@@ -1,0 +1,53 @@
+services:
+  aria2-ui:
+    image: wahyd4/aria2-ui:latest
+    restart: unless-stopped
+
+    environment:
+      # Auth credentials (REQUIRED - set strong passwords)
+      - ENABLE_AUTH=${ENABLE_AUTH:-true}
+      - ARIA2_USER=${ARIA2_USER:-admin}
+      - ARIA2_PWD=${ARIA2_PASSWORD}
+      - RPC_SECRET=${RPC_SECRET}
+
+      # Domain configuration for Coolify
+      - DOMAIN=${DOMAIN:-:80}
+
+      # External access config
+      - ARIA2_EXTERNAL_PORT=443
+      - ARIA2_SSL=false
+
+      # User permissions
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+
+      # Features
+      - ENABLE_RCLONE=${ENABLE_RCLONE:-true}
+      - ENABLE_FILEBROWSER=${ENABLE_FILEBROWSER:-true}
+      - ENABLE_APP_CHECKER=${ENABLE_APP_CHECKER:-false}
+
+      # Logging
+      - CADDY_LOG_LEVEL=${CADDY_LOG_LEVEL:-WARN}
+
+    volumes:
+      # Downloads directory
+      - aria2_data:/data
+
+      # Rclone + aria2 DHT cache
+      - aria2_cache:/app/.cache
+
+      # Config directory (includes aria2.conf and aria2.session)
+      - aria2_conf:/app/conf
+
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+# Define named volumes
+volumes:
+  aria2_data:
+  aria2_cache:
+  aria2_conf:

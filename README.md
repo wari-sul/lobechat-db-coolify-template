@@ -23,7 +23,14 @@ Deploy LobeChat with database support, decoupled authentication, and S3 storage.
 </td>
 <td width="50%">
 
-<!-- Space for future template -->
+### ⬇️ [Aria2-UI](./templates/aria2-ui/)
+
+Complete download manager with Aria2, AriaNg, File Browser, and Rclone integration.
+
+**Stack:** Aria2 + AriaNg + File Browser + Rclone + Caddy  
+**Complexity:** 🟡 Intermediate
+
+[📖 View Guide](./templates/aria2-ui/README.md) • [📦 Compose File](./templates/aria2-ui/docker-compose.yaml)
 
 </td>
 </tr>
